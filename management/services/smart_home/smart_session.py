@@ -11,7 +11,6 @@ from .smart_request import SmartHomeRequest
 
 
 def check_for_errors(response, *args, **kwargs):
-    return
     return response.raise_for_status()
 
 
