@@ -140,10 +140,7 @@ class EnergyMeasurementsManager:
 
     def _get_measurements_by_type(self, type_):
         return [data for data in self._measurements if data.device.type == type_]
-
-    def _days_hours_minutes(self, td):
-        time_diff = namedtuple("TimeDiff", "days hours minutes")
-        return time_diff(td.days, td.seconds // 3600, (td.seconds // 60) % 60)
+        
 
     def _get_photovoltaics_sufficiency_raport(self, date_time):
         energy_need = abs(self._get_energy_demand())
@@ -151,7 +148,7 @@ class EnergyMeasurementsManager:
         try:
             percentage_sufficiency = 100*energy_generated/energy_need
         except ZeroDivisionError:
-            percentage_sufficiency = None
+            percentage_sufficiency = 100
         return PhotovoltaicsSufficiencyRaport(building=self._building, sufficiency_percentage=percentage_sufficiency, date_time=date_time)
 
     def _get_storage_measurements(self, start_date: datetime, end_date: datetime):
@@ -163,9 +160,7 @@ class EnergyMeasurementsManager:
         
         measurements=[]
         for device_data in storage_devices:
-            device = Device.objects.get(id=device_data.get("device"))
-            assert device.name == device_data.get("name")
-            assert device.building.user.id == device_data.get("user")
+            device = Device.objects.get(id=device_data.get("device_id"))
             smart_device = SmartHomeEnergyStorage({**model_to_dict(device), "type": device.type})
             raports = smart_device.get_charge_state_raports(start_date, end_date)
             for raport in raports:

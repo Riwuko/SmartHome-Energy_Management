@@ -12,7 +12,7 @@ from services.smart_home import (SmartHomeEnergyGenerator,
                                  SmartHomeEnergyReceiver,
                                  SmartHomeEnergyStorage)
 
-from data_providers import WeatherDataProvider
+from data_providers import WeatherDataProvider, ExchangePricesDataProvider
 from .measurements_manager import EnergyMeasurementsManager
 from .models import (Building, Device, EnergyDailyMeasurement, EnergyGenerator, EnergyMeasurement,
                      EnergyReceiver, EnergySourcesRaport, EnergyStorage, EnergySurplusLossRaport, EnergySurplusRaport, ExchangeEnergyStorageRaport, Floor, PhotovoltaicsSufficiencyRaport, Room)
@@ -32,6 +32,17 @@ def weather_data_view(request):
         end_date = validated_data.get("end_datetime")
         weather_data = WeatherDataProvider().get_data(start_date, end_date)
         return Response(weather_data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view()
+def exchange_data_view(request):
+    serializer = DateTimeRangeSerializer(data=request.query_params)
+    if serializer.is_valid(raise_exception=True):
+        validated_data = serializer.to_internal_value(serializer.data)
+        start_date = validated_data.get("start_datetime")
+        end_date = validated_data.get("end_datetime")
+        exchange_data = ExchangePricesDataProvider().get_data(start_date, end_date)
+        return Response(exchange_data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class BuildingViewSet(viewsets.ModelViewSet):

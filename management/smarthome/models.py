@@ -88,6 +88,7 @@ class EnergyGenerator(Device):
         smart_device = SmartHomeEnergyGenerator(device)
         smart_building.push_devices([smart_device])
 
+
 class EnergyStorage(Device):
     capacity = models.FloatField()  # [kWh]
     battery_voltage = models.FloatField(null=True, blank=True)
@@ -116,7 +117,7 @@ class EnergyDailyMeasurement(models.Model):
         )
 
     def __str__(self):
-        return f"Measurement: {str(self.id)} | device: {self.device.name} | datetime: {self.datetime}"
+        return f"Building: {str(self.device.building)} Measurement: {str(self.id)} | device: {self.device.name} | datetime: {self.datetime}"
 
 
 class EnergyMeasurement(models.Model):

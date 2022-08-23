@@ -52,14 +52,13 @@ class EnergyExchangeCalculator(BaseEnergyCalculator):
 
     def get_current_exchange_storage(self):
         try:
-            raport = (
-                ExchangeEnergyStorageRaport.objects.filter(building=self._building)
-                .latest("date_time_to")
+            return (
+                ExchangeEnergyStorageRaport.objects.get(building=self._building, date_time_to=self._date_time_to)
             )
         except ExchangeEnergyStorageRaport.DoesNotExist:
             return
-        exchange_range_gt_current_timestamp = raport.date_time_from <= self._date_time_from and raport.date_time_to >= self._date_time_to
-        exchange_started_after_start = raport.date_time_from >= self._date_time_from and raport.date_time_from <= self._date_time_to
-        exchange_ended_before_end = raport.date_time_to >= self._date_time_from and raport.date_time_to < self._date_time_to
-        if  (exchange_range_gt_current_timestamp or exchange_started_after_start or exchange_ended_before_end) and raport.remained_value>0:
-            return raport
+        # exchange_range_gt_current_timestamp = raport.date_time_from <= self._date_time_from and raport.date_time_to >= self._date_time_to
+        # exchange_started_after_start = raport.date_time_from >= self._date_time_from and raport.date_time_from <= self._date_time_to
+        # exchange_ended_before_end = raport.date_time_to >= self._date_time_from and raport.date_time_to < self._date_time_to
+        # if  (exchange_range_gt_current_timestamp or exchange_started_after_start or exchange_ended_before_end) and raport.remained_value>0:
+        #     return raport

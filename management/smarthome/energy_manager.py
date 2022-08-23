@@ -88,7 +88,6 @@ class BuildingEnergyManager:
 
         self._exchange_energy_regressor.update_energy_data(
             {
-                "energy_usage": energy_usage, #how much energy was used during timestamp
                 "energy_storage": storage_charge_value, #how much energy is inside storage after timestamp
                 "surplus_data": energy_surplus, #how much energy is in surplus after timestamp
                 "public_grid_usage": public_grid_usage, #how much energy was needed from public grid during timestamp
@@ -118,8 +117,8 @@ class BuildingEnergyManager:
     def _store_exchange_energy(self):
         exchange_calc = self._sources_calculators[sources.ENERGY_EXCHANGE]
         available_exchange_energy = exchange_calc.get_current_exchange_storage()
-
         if available_exchange_energy:
+
             remaining_energy = available_exchange_energy.remained_value
             if self._is_energy_surplus(remaining_energy):
                 available_storage = self._sources_calculators.get(sources.ENERGY_STORAGE)
@@ -133,7 +132,6 @@ class BuildingEnergyManager:
                     self._update_energy_sources_data(sources.ENERGY_EXCHANGE, stored_energy, energy_price)
             if self._is_energy_surplus(remaining_energy):
                 exchange_ends_in = (available_exchange_energy.date_time_to - self._datetime_to).total_seconds()/60
-
                 if  exchange_ends_in < 20 and exchange_ends_in >= 0: #ends in less than 20 minutes but hasnt ended yet
                     self._store_exchange_remaining_energy_into_grid_surplus(remaining_energy)
 

@@ -40,18 +40,18 @@ def get_home_setup(start_date):
     windows_energy_used = []
     for date_ in hours_of_windows:
         if time(16,0,0)<date_.time()<time(23,59,59):
-            windows_energy_used.append(np.random.uniform(0.5, 5))
+            windows_energy_used.append(np.random.uniform(1.0, 5))
         if time(0,0,0)<date_.time()<time(6,0,0):
-            windows_energy_used.append(np.random.uniform(0.03, 0.1))
+            windows_energy_used.append(np.random.uniform(0.03, 0.3))
         else:
-            windows_energy_used.append(np.random.uniform(0.1, 1))
+            windows_energy_used.append(np.random.uniform(0.5, 1.5))
 
     generation_power = np.random.randint(400,1800)
 
     total_storage_capacity = np.random.randint(3,10)
     total_storage_voltage = np.random.randint(12, 28) #
-    initial_storage_charge_value = np.random.uniform(0,total_storage_capacity)
-    initial_grid_surplus_value = np.random.uniform(0,10)
+    initial_storage_charge_value = np.random.uniform(0,total_storage_capacity/2)
+    initial_grid_surplus_value = np.random.uniform(0,5)
 
     return {
         "storage_capacity": total_storage_capacity,
@@ -137,7 +137,7 @@ def test_generate_2_windowed_data(mock_storage, mock_measurements, requests_mock
         date_str = "%Y-%m-%d %H:%M:%S"
         
         first_date = datetime(2022,1,1,0,0,0)
-        last_date = datetime(2022,12,31,21,59,59)
+        last_date = datetime(2022,12,31,20,59,59)
 
         start_date = round_time(random_date(first_date, last_date))
         end_date = start_date+timedelta(hours=3)

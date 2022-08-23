@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from .views import (weather_data_view, BuildingDevicesView, BuildingEnergyView,BuildingViewSet, BuildingEnergySourcesRaportsView, BuildingExchangeEnergyStorageRaportsView,
+from .views import (weather_data_view, exchange_data_view, BuildingDevicesView, BuildingEnergyView,BuildingViewSet, BuildingEnergySourcesRaportsView, BuildingExchangeEnergyStorageRaportsView,
                     DeviceViewSet, BuildingEnergyMeasurementViewSet, RoomViewSet, BuildingEnergyGridSurplusRaportsView, BuildingPhotovoltaicsSufficiencyRaportsView)
 
 app_name = "smarthome"
@@ -52,4 +52,5 @@ urlpatterns = [
         name="building-exchange-energy",
     ),
     path('weather/', weather_data_view, name='weather-data-view'),
+    path('exchange/', exchange_data_view, name='exchange-data-view'),
 ]

@@ -1,0 +1,455 @@
+{
+    "email": "sec_scenario_user@mail.com",
+	"name": "sec_scenario_user",
+	"password": "some_neat_password",
+	"buildings": [
+		{
+			"name" : "second_scenario_building",
+			"devices": [
+				{
+					"name": "kitchen_bulb1",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230.0
+				},
+				{
+					"name": "kitchen_bulb2",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230.0
+				},
+				{
+					"name": "fridge",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 40,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "oven",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 2000,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "dishmashine",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 50,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "microwave",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 800,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "electric_kettle",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 2500,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "led_tape",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "toster",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 1000,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "induction_cooker",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 4000,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "ventilation_system",
+					"floor": 0,
+					"state": false,
+					"room": "kitchen",
+					"device_power": 300,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "living_room_bulb1",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230.0
+				},
+				{
+					"name": "living_room_bulb2",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230.0
+				},
+				{
+					"name": "living_room_bulb3",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230.0
+				},
+				{
+					"name": "living_room_bulb4",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230.0
+				},
+				{
+					"name": "tv",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 60,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "game_console",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 135,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "living_room_smart_window_blinds",
+					"floor": 0,
+					"state": false,
+					"room": "living_room",
+					"device_power": 135,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "lamp",
+					"floor": 0,
+					"state": false,
+					"room": "bedroom",
+					"device_power": 15,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "bedroom_bulb1",
+					"floor": 0,
+					"state": false,
+					"room": "bedroom",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "bedroom_bulb2",
+					"floor": 0,
+					"state": false,
+					"room": "bedroom",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "bedroom_smart_window_blinds",
+					"floor": 0,
+					"state": false,
+					"room": "bedroom",
+					"device_power": 135,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "computer_bedroom",
+					"floor": 0,
+					"state": false,
+					"room": "bedroom",
+					"device_power": 400,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "bathroom_bulb1",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "bathroom_bulb2",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "electric_toothbrush1",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "electric_toothbrush2",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "electric_toothbrush3",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "electric_toothbrush4",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "clothes_dryer",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 1500,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "washing_machine",
+					"floor": 0,
+					"state": false,
+					"room": "bathroom",
+					"device_power": 90,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "hall_bulb1",
+					"floor": 0,
+					"state": false,
+					"room": "hall",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "hall_bulb2",
+					"floor": 0,
+					"state": false,
+					"room": "hall",
+					"device_power": 8,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "phone_charger1",
+					"state": false,
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "phone_charger2",
+					"state": false,
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "phone_charger3",
+					"state": false,
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "phone_charger4",
+					"state": false,
+					"device_power": 1,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "iron",
+					"state": false,
+					"device_power": 2600,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "hair_straightener",
+					"state": false,
+					"device_power": 80,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "hair_dryer",
+					"state": false,
+					"device_power": 1000,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "vacuum_cleaner",
+					"state": false,
+					"device_power": 900,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room1_bulb1",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room1",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room1_bulb2",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room1",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room1_lamp",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room1",
+					"device_power": 15,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room1_computer",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room1",
+					"device_power": 400,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room1_tv",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room1",
+					"device_power": 60,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room2_bulb1",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room2",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room2_bulb2",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room1",
+					"device_power": 5,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room2_lamp",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room2",
+					"device_power": 10,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "kid_room2_computer",
+					"state": false,
+					"floor": 0,
+					"room": "kid_room2",
+					"device_power": 400,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				},
+				{
+					"name": "pantry_fridge",
+					"state": false,
+					"floor": 0,
+					"room": "pantry",
+					"device_power": 50,
+					"type": "EnergyReceiver",
+					"supply_voltage": 230
+				}
+			]
+		}
+	]
+}

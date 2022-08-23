@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import math
-
+import functools
 
 from data_providers.exchange_prices_data_provider import ExchangePricesDataProvider
 from data_providers.weather_data_provider import WeatherDataProvider
@@ -23,6 +23,7 @@ class ExchangeEnergyRegressor:
         df = self._collect_energy_data()
         return self._regressor.predict(df)
 
+    @functools.lru_cache
     def _load_regression_model(self):
         self._regressor = pickle.load(open(self._model_filename, 'rb'))
 
@@ -48,19 +49,28 @@ class ExchangeEnergyRegressor:
         price_manager.update_date(start_date, end_date)
 
         energy_data = {
-            **self._energy_timestamp_data,
-            "geometic_mean_solar_radiation_real": geometic_mean_solar_radiation_real,
+            "energy_generation": self._energy_timestamp_data["energy_generation"], 
+            "energy_usage": abs(self._energy_timestamp_data["energy_usage"]),
+            "energy_storage": abs(self._energy_timestamp_data["energy_storage"]),
+            "surplus_data": abs(self._energy_timestamp_data["surplus_data"]),
+            "public_grid_usage": abs(self._energy_timestamp_data["public_grid_usage"]),
             "geometic_mean_solar_radiation_forecast": geometic_mean_solar_radiation_forecast,
             "weatehr_accuracy": weather_accuracy,
+            "initial_grid_surplus": self._energy_timestamp_data["initial_grid_surplus"],
+            "initial_storage_charge_value": self._energy_timestamp_data["initial_storage_charge_value"],
             "stock_market_trend": stock_market_trend,
             "exchange_price": price_manager.get_price_by_source(sources.ENERGY_EXCHANGE),
             "public_grid_price": price_manager.get_price_by_source(sources.PUBLIC_GRID),
+            "total_storage_capacity": self._energy_timestamp_data["total_storage_capacity"],
+            "end_date": self._energy_timestamp_data["end_date"],
+                # "geometic_mean_solar_radiation_real": geometic_mean_solar_radiation_real,
         }
-        energy_data["energy_usage"] = abs(energy_data["energy_usage"])
 
         df = pd.DataFrame.from_dict([energy_data])
         df['end_date'] = pd.to_datetime(df['end_date'],infer_datetime_format=True)
         df['end_date']=df['end_date'].apply(lambda x: x.toordinal())
+
+
         return df
 
     def update_initial_energy_data(self, data):
