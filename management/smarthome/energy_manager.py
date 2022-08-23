@@ -105,6 +105,7 @@ class BuildingEnergyManager:
                 energy_missing
             )
 
+
             self._update_energy_sources_data(source, energy_used, energy_price)
         return energy_missing
 
@@ -159,6 +160,7 @@ class BuildingEnergyManager:
             remaining_energy = grid_surplus.store_energy_surplus(remaining_energy)
             stored_energy = energy_to_store - remaining_energy
             self._update_energy_surpluses_data(sources.GRID_SURPLUS, stored_energy)
+
 
 
     def _store_photovoltaics_surplus_into_energy_storage(self, remaining_energy):

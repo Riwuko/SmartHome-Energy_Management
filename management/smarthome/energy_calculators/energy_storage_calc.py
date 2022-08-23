@@ -112,7 +112,7 @@ class EnergyStorageCalculator(BaseEnergyCalculator):
         else:
             self._storage_devices_data[storage_device]["timestamp_action"] = JobType.USAGE
         self._create_new_charge_state_raport(storage_device, new_capacity)
-    
+        
         self._storage_devices_data[storage_device]["current_capacity"] = new_capacity
 
     

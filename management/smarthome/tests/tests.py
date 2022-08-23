@@ -524,6 +524,7 @@
 #             iteration_energy_stored = storage_surplus.get("iteration_energy_stored", 0)
 #             total_energy_in_storage = storage_surplus.get("total_energy_in_storage")
 #             storage_surplus_data = next_surplus_raport[sources.ENERGY_STORAGE]
+
             
 #             assert round(storage_surplus_data, 5) == round(iteration_energy_stored, 5)
 

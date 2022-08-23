@@ -207,7 +207,6 @@ class EnergySurplusRaport(models.Model):
             except EnergySurplusLossRaport.DoesNotExist:
                 EnergySurplusLossRaport.objects.create(value=value_loss, building=self.building, date_time=self.date_time)
             self.value = float(current_value)+value_to_grid
-
         else:
             self.value = current_value-self.value
         
