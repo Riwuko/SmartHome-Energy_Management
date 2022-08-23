@@ -1,0 +1,196 @@
+
+{
+    "name": "User",
+    "email": "userekeere@pl.pl",
+    "password": "najlepszehaslonaswiecie",
+    "buildings": [
+        {
+            "name": "house_kwiatowa",
+            "devices": [
+                {
+                    "name": "bulb",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 8,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230.0
+                },
+                {
+                    "name": "fridge",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 40,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "oven",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 2000,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "dishmashine",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 50,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "microwave",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 800,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "electric_kettle",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 2500,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "led_tape",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 5,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+
+                    "name": "induction_cooker",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 4000,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "thermomix",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 1000 ,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "ventilation_system",
+                    "floor": 0,
+                    "state": false,
+                    "room": "kitchen",
+                    "device_power": 300,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "tv",
+                    "floor": 0,
+                    "state": false,
+                    "room": "living_room",
+                    "device_power": 60,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "game_console",
+                    "floor": 0,
+                    "state": false,
+                    "room": "living_room",
+                    "device_power": 135,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "smart_window_blinds",
+                    "floor": 0,
+                    "state": false,
+                    "room": "living_room",
+                    "device_power": 135,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "lamp",
+                    "floor": 0,
+                    "state": false,
+                    "room": "bedroom",
+                    "device_power": 15,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+
+                    "name": "computer",
+                    "floor": 0,
+                    "state": false,
+                    "room": "bedroom",
+                    "device_power": 400,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "electric_toothbrush",
+                    "floor": 0,
+                    "state": false,
+                    "room": "bathroom",
+                    "device_power": 1,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "washing_machine",
+                    "floor": 0,
+                    "state": false,
+                    "room": "bathroom",
+                    "device_power": 90,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "phone_charger",
+                    "floor": 0,
+                    "state": false,
+                    "room": "",
+                    "device_power": 1,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "iron",
+                    "floor": 0,
+                    "state": false,
+                    "room": "",
+                    "device_power": 2600,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                },
+                {
+                    "name": "vacuum_cleaner",
+                    "floor": 0,
+                    "state": false,
+                    "room": "",
+                    "device_power": 900,
+                    "type": "EnergyReceiver",
+                    "supply_voltage": 230
+                }
+            ]
+        }
+    ]
+}
+

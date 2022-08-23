@@ -1,5 +1,8 @@
+from datetime import timedelta
 from ..models import ExchangeEnergyStorageRaport
 from .base_calc import BaseEnergyCalculator, is_energy_needed
+from ..price_manager import PriceManager
+from ..constants import EnergySource as sources
 
 
 class EnergyExchangeCalculator(BaseEnergyCalculator):
@@ -30,16 +33,32 @@ class EnergyExchangeCalculator(BaseEnergyCalculator):
             surplus_cover = surplus_energy_used - energy_demand
         return surplus_energy_used, surplus_cover
 
+    def buy_exchange_energy(self, amount):
+        if amount<=0:
+            return
+        date_time_from = self._date_time_to+timedelta(hours=1)
+        date_time_to = date_time_from+timedelta(hours=1)
+        pm = PriceManager()
+        pm.update_date(self._date_time_from, self._date_time_to)
+        price = pm.get_price_by_source(sources.ENERGY_EXCHANGE)
+        ExchangeEnergyStorageRaport.objects.create(
+            building = self._building,
+            total_value = amount,
+            remained_value = amount,
+            purchase_price = price,
+            date_time_from = date_time_from,
+            date_time_to = date_time_to
+        )
+
     def get_current_exchange_storage(self):
         try:
-            raport = (
-                ExchangeEnergyStorageRaport.objects.filter(building=self._building)
-                .latest("date_time_to")
+            return (
+                ExchangeEnergyStorageRaport.objects.get(building=self._building, date_time_to=self._date_time_to)
             )
         except ExchangeEnergyStorageRaport.DoesNotExist:
             return
-        exchange_range_gt_current_timestamp = raport.date_time_from <= self._date_time_from and raport.date_time_to >= self._date_time_to
-        exchange_started_after_start = raport.date_time_from >= self._date_time_from and raport.date_time_from <= self._date_time_to
-        exchange_ended_before_end = raport.date_time_to >= self._date_time_from and raport.date_time_to < self._date_time_to
-        if  (exchange_range_gt_current_timestamp or exchange_started_after_start or exchange_ended_before_end) and raport.remained_value>0:
-            return raport
+        # exchange_range_gt_current_timestamp = raport.date_time_from <= self._date_time_from and raport.date_time_to >= self._date_time_to
+        # exchange_started_after_start = raport.date_time_from >= self._date_time_from and raport.date_time_from <= self._date_time_to
+        # exchange_ended_before_end = raport.date_time_to >= self._date_time_from and raport.date_time_to < self._date_time_to
+        # if  (exchange_range_gt_current_timestamp or exchange_started_after_start or exchange_ended_before_end) and raport.remained_value>0:
+        #     return raport

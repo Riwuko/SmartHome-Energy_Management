@@ -1,1 +1,2 @@
-from .energy_market_price_provider import EnergyMarketPriceProvider
+from .exchange_prices_data_provider import ExchangePricesDataProvider
+from .weather_data_provider import WeatherDataProvider

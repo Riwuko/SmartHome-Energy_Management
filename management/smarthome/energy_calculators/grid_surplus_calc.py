@@ -1,6 +1,6 @@
 from ..models import EnergySurplusRaport
 from .base_calc import BaseEnergyCalculator, is_energy_needed
-
+from django.db.utils import IntegrityError
 
 class GridSurplusEnergyCalculator(BaseEnergyCalculator):
     _date_time = None
@@ -18,12 +18,11 @@ class GridSurplusEnergyCalculator(BaseEnergyCalculator):
         energy_demand = abs(energy_demand)
 
         current_surplus = self._get_current_grid_surplus()
+
         if current_surplus > 0:
             surplus_energy_used = min(current_surplus, energy_demand)
             usage = EnergySurplusRaport.BATTERY_CHARGING if battery_charging else EnergySurplusRaport.DEVICES_POWERING
-            self._create_new_grid_surplus(
-                usage, surplus_energy_used
-            )
+            self._create_new_grid_surplus(usage, surplus_energy_used)
         surplus_cover = surplus_energy_used - energy_demand
         return (
             surplus_energy_used,
@@ -41,9 +40,14 @@ class GridSurplusEnergyCalculator(BaseEnergyCalculator):
             return 0
 
     def _create_new_grid_surplus(self, type_, value):
-        EnergySurplusRaport.objects.create(
-            usage_type=type_,
-            value=value,
-            building=self._building,
-            date_time=self._date_time,
-        )
+        if value>0:
+            try:
+                x, _ =EnergySurplusRaport.objects.get_or_create(
+                    usage_type=type_,
+                    value=value,
+                    building=self._building,
+                    date_time=self._date_time,
+                )
+
+            except IntegrityError:
+                pass
